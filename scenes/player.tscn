@@ -1,0 +1,112 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="0_player"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_dash_0.png" id="dash_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_dash_1.png" id="dash_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_fall_0.png" id="fall_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_fall_1.png" id="fall_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_idle_0.png" id="idle_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_idle_1.png" id="idle_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_idle_2.png" id="idle_2"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_idle_3.png" id="idle_3"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_jump_0.png" id="jump_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_jump_1.png" id="jump_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_jump_2.png" id="jump_2"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_0.png" id="run_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_1.png" id="run_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_2.png" id="run_2"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_3.png" id="run_3"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_4.png" id="run_4"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_5.png" id="run_5"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_wall_jump_0.png" id="wall_jump_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_wall_jump_1.png" id="wall_jump_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_wall_slide_0.png" id="wall_slide_0"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="cam_script"]
+[ext_resource type="AudioStream" path="res://assets/audio/dash.wav" id="0_dash"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_player"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("dash_0")}, {"duration": 1.0, "texture": ExtResource("dash_1")}],
+"loop": true,
+"name": &"dash",
+"speed": 15.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("fall_0")}, {"duration": 1.0, "texture": ExtResource("fall_1")}],
+"loop": true,
+"name": &"fall",
+"speed": 8.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("idle_0")}, {"duration": 1.0, "texture": ExtResource("idle_1")}, {"duration": 1.0, "texture": ExtResource("idle_2")}, {"duration": 1.0, "texture": ExtResource("idle_3")}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("jump_0")}, {"duration": 1.0, "texture": ExtResource("jump_1")}, {"duration": 1.0, "texture": ExtResource("jump_2")}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("run_0")}, {"duration": 1.0, "texture": ExtResource("run_1")}, {"duration": 1.0, "texture": ExtResource("run_2")}, {"duration": 1.0, "texture": ExtResource("run_3")}, {"duration": 1.0, "texture": ExtResource("run_4")}, {"duration": 1.0, "texture": ExtResource("run_5")}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("wall_jump_0")}, {"duration": 1.0, "texture": ExtResource("wall_jump_1")}],
+"loop": true,
+"name": &"wall_jump",
+"speed": 10.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("wall_slide_0")}],
+"loop": true,
+"name": &"wall_slide",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(8, 15)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+floor_snap_length = 0.0
+safe_margin = 0.01
+script = ExtResource("0_player")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_player")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -8)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("cam_script")
+max_offset = Vector2(6, 4)
+max_roll = 0.0
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("0_dash")
+volume_db = -20.0
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -8)
+emitting = false
+amount = 20
+lifetime = 0.3
+local_coords = false
+emission_shape = 3
+emission_rect_extents = Vector2(3, 7)
+gravity = Vector2(0, 0)
+color = Color(1, 1, 1, 0.6)
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

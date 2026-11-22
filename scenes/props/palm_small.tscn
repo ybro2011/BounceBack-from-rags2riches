@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/images/user/palm_small_0.png" id="1_t"]
+[ext_resource type="Texture2D" path="res://assets/images/user/palm_small_1.png" id="2_t"]
+[ext_resource type="Texture2D" path="res://assets/images/user/palm_small_2.png" id="3_t"]
+[ext_resource type="Texture2D" path="res://assets/images/user/palm_small_3.png" id="4_t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_palm"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("1_t")}, {"duration": 1.0, "texture": ExtResource("2_t")}, {"duration": 1.0, "texture": ExtResource("3_t")}, {"duration": 1.0, "texture": ExtResource("4_t")}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="PalmSmall" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_palm")
+autoplay = "default"
+centered = false
+offset = Vector2(2, 3)

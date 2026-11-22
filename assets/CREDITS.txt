@@ -1,0 +1,13 @@
+fonts - kenney fonts (cc0) https://opengameart.org/content/kenney-fonts
+coin sound - 10 8bit coin sounds (cc0) https://opengameart.org/content/10-8bit-coin-sounds
+
+city stuff (all CC0 from opengameart.org):
+- skyline from "City Mega Pack" by GrafxKid - opengameart.org/content/city-mega-pack
+- distant downtown silhouettes from "City Scrollable Background Pixel Art" by Quantiset, recoloured for daytime - opengameart.org/content/city-scrollable-background-pixel-art
+- houses from "Pixelart Shanty House Pack" by Eduardo Martinelli - opengameart.org/content/pixelart-shanty-house-pack-urban-favela-slum
+- lamp, hydrant, bin, cone, barrier, crates, sign from "City Pixel Tileset" by software_atelier - opengameart.org/content/city-pixel-tileset
+- awnings, lift, fence, chimney, weather vane, signs, door, rock from "Platformer Art: Buildings" by Kenney (CC0) - opengameart.org/content/platformer-art-buildings
+
+code:
+- player, killzone, coin and slime scripts started from brackeys first-game-in-godot (public domain) https://github.com/Brackeys/first-game-in-godot
+- camera shake, bullet and coyote time from godot recipes by kidscancode (MIT, Copyright (c) 2019 KidsCanCode) https://kidscancode.org/godot_recipes/4.x/

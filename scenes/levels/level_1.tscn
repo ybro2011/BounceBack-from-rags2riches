@@ -1,0 +1,262 @@
+[gd_scene format=4]
+
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="1_vm7no"]
+[ext_resource type="PackedScene" path="res://scenes/money_bag.tscn" id="7_trtic"]
+[ext_resource type="PackedScene" path="res://scenes/props/palm_small.tscn" id="7_xrja0"]
+[ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="10_wcjpl"]
+[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="11_5orea"]
+[ext_resource type="PackedScene" path="res://scenes/props/palm_tree.tscn" id="13_wgvos"]
+[ext_resource type="TileSet" path="res://resources/tileset.tres" id="15_4xp61"]
+[ext_resource type="PackedScene" path="res://scenes/tax_collector.tscn" id="16_4yoxl"]
+[ext_resource type="PackedScene" path="res://scenes/cop.tscn" id="16_cop"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="18_ubuva"]
+[ext_resource type="PackedScene" path="res://scenes/props/barrier.tscn" id="c0_barrier"]
+[ext_resource type="PackedScene" path="res://scenes/props/cardboard_box.tscn" id="c1_cardboard_box"]
+[ext_resource type="PackedScene" path="res://scenes/props/crate_grey.tscn" id="c2_crate_grey"]
+[ext_resource type="PackedScene" path="res://scenes/props/crate_pink.tscn" id="c3_crate_pink"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_1.tscn" id="c4_house_1"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_2.tscn" id="c5_house_2"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_3.tscn" id="c6_house_3"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_4.tscn" id="c7_house_4"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_5.tscn" id="c8_house_5"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_small_1.tscn" id="c9_house_small_1"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_small_2.tscn" id="c10_house_small_2"]
+[ext_resource type="PackedScene" path="res://scenes/props/hydrant.tscn" id="c11_hydrant"]
+[ext_resource type="PackedScene" path="res://scenes/props/no_parking_sign.tscn" id="c12_no_parking_sign"]
+[ext_resource type="PackedScene" path="res://scenes/props/street_lamp.tscn" id="c13_street_lamp"]
+[ext_resource type="PackedScene" path="res://scenes/props/traffic_cone.tscn" id="c14_traffic_cone"]
+[ext_resource type="PackedScene" path="res://scenes/props/trash_can.tscn" id="c15_trash_can"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0ourt"]
+
+[node name="Game" type="Node2D" unique_id=571584682]
+
+[node name="Background" parent="." unique_id=1444490221 instance=ExtResource("1_vm7no")]
+layer = -1
+
+[node name="Props" type="Node2D" parent="." unique_id=980718239]
+
+[node name="PalmSmall" parent="Props" unique_id=223709960 instance=ExtResource("7_xrja0")]
+position = Vector2(509, 0.5)
+
+[node name="PalmTree" parent="Props" unique_id=207416060 groups=["palm"] instance=ExtResource("13_wgvos")]
+position = Vector2(1755, -284)
+
+[node name="PalmSmall2" parent="Props" unique_id=2019413087 instance=ExtResource("7_xrja0")]
+position = Vector2(782.5, -256)
+
+[node name="PalmSmall3" parent="Props" unique_id=818597621 instance=ExtResource("7_xrja0")]
+position = Vector2(1602, -255)
+
+[node name="PalmSmall4" parent="Props" unique_id=1298130452 instance=ExtResource("7_xrja0")]
+position = Vector2(2025, 208)
+
+[node name="PalmSmall5" parent="Props" unique_id=1718891229 instance=ExtResource("7_xrja0")]
+position = Vector2(2018, 209.5)
+
+[node name="PalmSmall6" parent="Props" unique_id=1005790299 instance=ExtResource("7_xrja0")]
+position = Vector2(1825, 178.5)
+
+[node name="HouseSmall1" parent="Props" instance=ExtResource("c9_house_small_1")]
+position = Vector2(126, 112)
+
+[node name="House1" parent="Props" instance=ExtResource("c4_house_1")]
+position = Vector2(240, 96)
+
+[node name="House2" parent="Props" instance=ExtResource("c5_house_2")]
+position = Vector2(364, 64)
+
+[node name="House3" parent="Props" instance=ExtResource("c6_house_3")]
+position = Vector2(490, 16)
+
+[node name="House4" parent="Props" instance=ExtResource("c7_house_4")]
+position = Vector2(900, -240)
+
+[node name="House5" parent="Props" instance=ExtResource("c8_house_5")]
+position = Vector2(940, -240)
+
+[node name="HouseSmall2" parent="Props" instance=ExtResource("c10_house_small_2")]
+position = Vector2(984, -240)
+
+[node name="HouseSmall12" parent="Props" instance=ExtResource("c9_house_small_1")]
+position = Vector2(1736, -240)
+
+[node name="House22" parent="Props" instance=ExtResource("c5_house_2")]
+position = Vector2(1925, 224)
+
+[node name="House32" parent="Props" instance=ExtResource("c6_house_3")]
+position = Vector2(1964, 224)
+
+[node name="House52" parent="Props" instance=ExtResource("c8_house_5")]
+position = Vector2(2032, 224)
+
+[node name="StreetLamp" parent="Props" instance=ExtResource("c13_street_lamp")]
+position = Vector2(97, 112)
+
+[node name="TrashCan" parent="Props" instance=ExtResource("c15_trash_can")]
+position = Vector2(263, 96)
+
+[node name="TrafficCone" parent="Props" instance=ExtResource("c14_traffic_cone")]
+position = Vector2(391, 64)
+
+[node name="CardboardBox" parent="Props" instance=ExtResource("c1_cardboard_box")]
+position = Vector2(517, 16)
+
+[node name="Barrier" parent="Props" instance=ExtResource("c0_barrier")]
+position = Vector2(622, -48)
+
+[node name="TrashCan2" parent="Props" instance=ExtResource("c15_trash_can")]
+position = Vector2(660, -48)
+
+[node name="CrateGrey" parent="Props" instance=ExtResource("c2_crate_grey")]
+position = Vector2(700, -48)
+
+[node name="CratePink" parent="Props" instance=ExtResource("c3_crate_pink")]
+position = Vector2(720, -48)
+
+[node name="CrateGrey2" parent="Props" instance=ExtResource("c2_crate_grey")]
+position = Vector2(710, -68)
+
+[node name="Hydrant" parent="Props" instance=ExtResource("c11_hydrant")]
+position = Vector2(762, -48)
+
+[node name="StreetLamp2" parent="Props" instance=ExtResource("c13_street_lamp")]
+position = Vector2(866, -240)
+
+[node name="NoParkingSign" parent="Props" instance=ExtResource("c12_no_parking_sign")]
+position = Vector2(1024, -240)
+
+[node name="TrafficCone2" parent="Props" instance=ExtResource("c14_traffic_cone")]
+position = Vector2(1256, -240)
+
+[node name="TrafficCone3" parent="Props" instance=ExtResource("c14_traffic_cone")]
+position = Vector2(1608, -240)
+
+[node name="TrashCan3" parent="Props" instance=ExtResource("c15_trash_can")]
+position = Vector2(1838, 192)
+
+[node name="StreetLamp3" parent="Props" instance=ExtResource("c13_street_lamp")]
+position = Vector2(2003, 224)
+
+[node name="Tiles" type="TileMapLayer" parent="." unique_id=425499907]
+tile_map_data = PackedByteArray("AAAFAAcAAAAAAAAAAAAFAAgAAAAHAAAAAAAFAAkAAAAHAAAAAAAFAAoAAAAGAAAAAAAGAAcAAAABAAAAAAAGAAgAAAAIAAAAAAAGAAkAAAAIAAAAAAAGAAoAAAAFAAAAAAAHAAcAAAABAAAAAAAHAAgAAAAIAAAAAAAHAAkAAAAIAAAAAAAHAAoAAAAFAAAAAAAIAAcAAAACAAAAAAAIAAgAAAADAAAAAAAIAAkAAAADAAAAAAAIAAoAAAAEAAAAAAANAAYAAAAAAAAAAAANAAcAAAAHAAAAAAANAAgAAAAHAAAAAAANAAkAAAAGAAAAAAAOAAYAAAABAAAAAAAOAAcAAAAIAAAAAAAOAAgAAAAIAAAAAAAOAAkAAAAFAAAAAAAPAAYAAAABAAAAAAAPAAcAAAAIAAAAAAAPAAgAAAAIAAAAAAAPAAkAAAAFAAAAAAAQAAYAAAACAAAAAAAQAAcAAAADAAAAAAAQAAgAAAADAAAAAAAQAAkAAAAEAAAAAAAVAAQAAAAAAAAAAAAVAAUAAAAHAAAAAAAVAAYAAAAHAAAAAAAVAAcAAAAGAAAAAAAWAAQAAAABAAAAAAAWAAUAAAAIAAAAAAAWAAYAAAAIAAAAAAAWAAcAAAAFAAAAAAAXAAQAAAABAAAAAAAXAAUAAAAIAAAAAAAXAAYAAAAIAAAAAAAXAAcAAAAFAAAAAAAYAAQAAAACAAAAAAAYAAUAAAADAAAAAAAYAAYAAAADAAAAAAAYAAcAAAAEAAAAAAAdAAEAAAAAAAAAAAAdAAIAAAAHAAAAAAAdAAMAAAAHAAAAAAAdAAQAAAAGAAAAAAAeAAEAAAABAAAAAAAeAAIAAAAIAAAAAAAeAAMAAAAIAAAAAAAeAAQAAAAFAAAAAAAfAAEAAAABAAAAAAAfAAIAAAAIAAAAAAAfAAMAAAAIAAAAAAAfAAQAAAAFAAAAAAAgAAEAAAACAAAAAAAgAAIAAAADAAAAAAAgAAMAAAADAAAAAAAgAAQAAAAEAAAAAAAlAP3/AAAAAAAAAAAlAP7/AAAHAAAAAAAlAP//AAAHAAAAAAAlAAAAAAAGAAAAAAAmAP3/AAABAAAAAAAmAP7/AAAIAAAAAAAmAP//AAAIAAAAAAAmAAAAAAAFAAAAAAAnAP3/AAABAAAAAAAnAP7/AAAIAAAAAAAnAP//AAAIAAAAAAAnAAAAAAAFAAAAAAAoAP3/AAABAAAAAAAoAP7/AAAIAAAAAAAoAP//AAAIAAAAAAAoAAAAAAAEAAAAAAApAP3/AAABAAAAAAApAP7/AAAIAAAAAAApAP//AAAEAAAAAAAqAP3/AAABAAAAAAAqAP7/AAAEAAAAAAArAP3/AAAAAAAAAAAsAP3/AAAIAAAAAAAtAP3/AAAAAAAAAAAuAO7/AAAAAAAAAAAuAO//AAAFAAAAAAAuAPD/AAAFAAAAAAAuAPH/AAAFAAAAAAAuAPL/AAAFAAAAAAAuAPP/AAAHAAAAAAAuAPT/AAAHAAAAAAAuAPX/AAAFAAAAAAAuAPb/AAAFAAAAAAAuAPf/AAAFAAAAAAAuAPj/AAAHAAAAAAAuAPn/AAAGAAAAAAAuAP3/AAAAAAAAAAAvAP3/AAAIAAAAAAAwAP3/AAAHAAAAAAAxAPH/AAACAAAAAAAxAPL/AAAFAAAAAAAxAPP/AAADAAAAAAAxAPT/AAADAAAAAAAxAPX/AAAFAAAAAAAxAPb/AAAFAAAAAAAxAPf/AAAFAAAAAAAxAPj/AAADAAAAAAAxAPn/AAAFAAAAAAAxAPr/AAAFAAAAAAAxAPv/AAAFAAAAAAAxAPz/AAAFAAAAAAAxAP3/AAAEAAAAAAA1APH/AAAAAAAAAAA1APL/AAAHAAAAAAA1APP/AAAHAAAAAAA1APT/AAAGAAAAAAA2APH/AAABAAAAAAA2APL/AAAIAAAAAAA2APP/AAAIAAAAAAA2APT/AAAFAAAAAAA3APH/AAABAAAAAAA3APL/AAAIAAAAAAA3APP/AAAIAAAAAAA3APT/AAAFAAAAAAA4APH/AAABAAAAAAA4APL/AAAIAAAAAAA4APP/AAAIAAAAAAA4APT/AAAFAAAAAAA5APH/AAABAAAAAAA5APL/AAAIAAAAAAA5APP/AAAIAAAAAAA5APT/AAAFAAAAAAA6APH/AAABAAAAAAA6APL/AAAIAAAAAAA6APP/AAAIAAAAAAA6APT/AAAFAAAAAAA7APH/AAABAAAAAAA7APL/AAAIAAAAAAA7APP/AAAIAAAAAAA7APT/AAAFAAAAAAA8APH/AAABAAAAAAA8APL/AAAIAAAAAAA8APP/AAAIAAAAAAA8APT/AAAFAAAAAAA9APH/AAABAAAAAAA9APL/AAAIAAAAAAA9APP/AAAIAAAAAAA9APT/AAAFAAAAAAA+APH/AAABAAAAAAA+APL/AAAIAAAAAAA+APP/AAAIAAAAAAA+APT/AAAFAAAAAAA/APH/AAABAAAAAAA/APL/AAAIAAAAAAA/APP/AAAIAAAAAAA/APT/AAAFAAAAAABAAPH/AAACAAAAAABAAPL/AAADAAAAAABAAPP/AAADAAAAAABAAPT/AAAEAAAAAABIAPH/AAABAAAAAABOAPH/AAABAAAAAABVAPH/AAABAAAAAABdAPH/AAABAAAAAABkAPH/AAABAAAAAABrAPH/AAAAAAAAAABrAPL/AAAHAAAAAABrAPP/AAAHAAAAAABrAPT/AAAGAAAAAABsAPH/AAABAAAAAABsAPL/AAAIAAAAAABsAPP/AAAIAAAAAABsAPT/AAAFAAAAAABtAPH/AAABAAAAAABtAPL/AAAIAAAAAABtAPP/AAAIAAAAAABtAPT/AAAFAAAAAABuAPH/AAACAAAAAABuAPL/AAADAAAAAABuAPP/AAADAAAAAABuAPT/AAAEAAAAAABxAPH/AQABAAAAAAByAAwAAQAAAAAAAAByAA0AAQAHAAAAAAByAA4AAQAHAAAAAAByAA8AAQAHAAAAAAByABAAAQAHAAAAAAByABEAAQAGAAAAAABzAAwAAQABAAAAAABzAA0AAQAIAAAAAABzAA4AAQAIAAAAAABzAA8AAQAIAAAAAABzABAAAQAIAAAAAABzABEAAQAFAAAAAAB0APH/AQABAAAAAAB0AAwAAQACAAAAAAB0AA0AAQAIAAAAAAB0AA4AAQAIAAAAAAB0AA8AAQAIAAAAAAB0ABAAAQAIAAAAAAB0ABEAAQAFAAAAAAB1AA0AAQABAAAAAAB1AA4AAQAIAAAAAAB1AA8AAQAIAAAAAAB1ABAAAQAIAAAAAAB1ABEAAQAFAAAAAAB2AA0AAQACAAAAAAB2AA4AAQAIAAAAAAB2AA8AAQAIAAAAAAB2ABAAAQAIAAAAAAB2ABEAAQAFAAAAAAB3ANv/AQAAAAAAAAB3ANz/AQAHAAAAAAB3AN3/AQAFAAAAAAB3AN7/AQADAAAAAAB3AN//AQAHAAAAAAB3AOD/AQABAAAAAAB3AOH/AQAHAAAAAAB3AOL/AQAFAAAAAAB3AOP/AQABAAAAAAB3AOT/AQAHAAAAAAB3AOX/AQAFAAAAAAB3AOb/AQAHAAAAAAB3AOf/AQAHAAAAAAB3AOj/AQADAAAAAAB3AOn/AQAHAAAAAAB3AOr/AQAFAAAAAAB3AOv/AQAFAAAAAAB3AOz/AQAHAAAAAAB3AO3/AQAFAAAAAAB3AO7/AQAHAAAAAAB3AO//AQAGAAAAAAB3APP/AQAAAAAAAAB3APT/AQAHAAAAAAB3APX/AQADAAAAAAB3APb/AQAHAAAAAAB3APf/AQABAAAAAAB3APj/AQADAAAAAAB3APn/AQAHAAAAAAB3APr/AQABAAAAAAB3APv/AQAFAAAAAAB3APz/AQAHAAAAAAB3AP3/AQAHAAAAAAB3AP7/AQAHAAAAAAB3AP//AQAHAAAAAAB3AAAAAQABAAAAAAB3AAEAAQADAAAAAAB3AAIAAQAHAAAAAAB3AAMAAQAFAAAAAAB3AAQAAQAHAAAAAAB3AAUAAQABAAAAAAB3AAYAAQADAAAAAAB3AAcAAQAHAAAAAAB3AAgAAQAGAAAAAAB3AA4AAQABAAAAAAB3AA8AAQAIAAAAAAB3ABAAAQAIAAAAAAB3ABEAAQAFAAAAAAB4AA4AAQABAAAAAAB4AA8AAQAIAAAAAAB4ABAAAQAIAAAAAAB4ABEAAQAFAAAAAAB5AA4AAQABAAAAAAB5AA8AAQAIAAAAAAB5ABAAAQAIAAAAAAB5ABEAAQAIAAAAAAB5ABIAAQAGAAAAAAB6ANv/AQACAAAAAAB6ANz/AQAHAAAAAAB6AN3/AQAFAAAAAAB6AN7/AQABAAAAAAB6AN//AQAHAAAAAAB6AOD/AQADAAAAAAB6AOH/AQAHAAAAAAB6AOL/AQAFAAAAAAB6AOP/AQABAAAAAAB6AOT/AQABAAAAAAB6AOX/AQAHAAAAAAB6AOb/AQAFAAAAAAB6AOf/AQAHAAAAAAB6AOj/AQAHAAAAAAB6AOn/AQADAAAAAAB6AOr/AQAHAAAAAAB6AOv/AQAHAAAAAAB6AOz/AQABAAAAAAB6AO3/AQAFAAAAAAB6AO7/AQAHAAAAAAB6AO//AQAHAAAAAAB6APD/AQAHAAAAAAB6APH/AQABAAAAAAB6APL/AQABAAAAAAB6APP/AQAHAAAAAAB6APT/AQADAAAAAAB6APX/AQAFAAAAAAB6APb/AQAHAAAAAAB6APf/AQADAAAAAAB6APj/AQAFAAAAAAB6APn/AQAHAAAAAAB6APr/AQAFAAAAAAB6APv/AQAFAAAAAAB6APz/AQAHAAAAAAB6AP3/AQAHAAAAAAB6AP7/AQAHAAAAAAB6AP//AQAHAAAAAAB6AAAAAQAFAAAAAAB6AAEAAQABAAAAAAB6AAIAAQAHAAAAAAB6AAMAAQABAAAAAAB6AAQAAQAHAAAAAAB6AAUAAQAHAAAAAAB6AAYAAQABAAAAAAB6AAcAAQAHAAAAAAB6AAgAAQAEAAAAAAB6AA4AAQABAAAAAAB6AA8AAQAIAAAAAAB6ABAAAQAIAAAAAAB6ABEAAQAIAAAAAAB6ABIAAQAFAAAAAAB7AA4AAQABAAAAAAB7AA8AAQAIAAAAAAB7ABAAAQAIAAAAAAB7ABEAAQAIAAAAAAB7ABIAAQAFAAAAAAB8AA4AAQABAAAAAAB8AA8AAQAIAAAAAAB8ABAAAQAIAAAAAAB8ABEAAQAIAAAAAAB8ABIAAQAFAAAAAAB9AA4AAQABAAAAAAB9AA8AAQAIAAAAAAB9ABAAAQAIAAAAAAB9ABEAAQAIAAAAAAB9ABIAAQAFAAAAAAB+AA4AAQABAAAAAAB+AA8AAQAIAAAAAAB+ABAAAQAIAAAAAAB+ABEAAQAIAAAAAAB+ABIAAQAFAAAAAAB/AA4AAQACAAAAAAB/AA8AAQADAAAAAAB/ABAAAQADAAAAAAB/ABEAAQADAAAAAAB/ABIAAQAEAAAAAAA=")
+tile_set = ExtResource("15_4xp61")
+
+[node name="MoneyBags" type="Node2D" parent="." unique_id=33169312]
+
+[node name="MoneyBag1" parent="MoneyBags" unique_id=934613311 instance=ExtResource("7_trtic")]
+position = Vector2(120, 102)
+
+[node name="MoneyBag2" parent="MoneyBags" unique_id=117432483 instance=ExtResource("7_trtic")]
+position = Vector2(136, 102)
+
+[node name="MoneyBag3" parent="MoneyBags" unique_id=2114234596 instance=ExtResource("7_trtic")]
+position = Vector2(264, 86)
+
+[node name="MoneyBag4" parent="MoneyBags" unique_id=1170577459 instance=ExtResource("7_trtic")]
+position = Vector2(376, 54)
+
+[node name="MoneyBag5" parent="MoneyBags" unique_id=621708142 instance=ExtResource("7_trtic")]
+position = Vector2(504, 6)
+
+[node name="MoneyBag6" parent="MoneyBags" unique_id=359169187 instance=ExtResource("7_trtic")]
+position = Vector2(632, -58)
+
+[node name="MoneyBag7" parent="MoneyBags" unique_id=168098399 instance=ExtResource("7_trtic")]
+position = Vector2(680, -58)
+
+[node name="MoneyBag8" parent="MoneyBags" unique_id=291108209 instance=ExtResource("7_trtic")]
+position = Vector2(744, -298)
+
+[node name="MoneyBag9" parent="MoneyBags" unique_id=1143095581 instance=ExtResource("7_trtic")]
+position = Vector2(792, -250)
+
+[node name="MoneyBag10" parent="MoneyBags" unique_id=400653456 instance=ExtResource("7_trtic")]
+position = Vector2(888, -250)
+
+[node name="MoneyBag11" parent="MoneyBags" unique_id=198629478 instance=ExtResource("7_trtic")]
+position = Vector2(952, -250)
+
+[node name="MoneyBag12" parent="MoneyBags" unique_id=1440585949 instance=ExtResource("7_trtic")]
+position = Vector2(1000, -250)
+
+[node name="MoneyBag13" parent="MoneyBags" unique_id=1704272654 instance=ExtResource("7_trtic")]
+position = Vector2(1256, -250)
+
+[node name="MoneyBag14" parent="MoneyBags" unique_id=1091461411 instance=ExtResource("7_trtic")]
+position = Vector2(1720, -250)
+
+[node name="MoneyBag15" parent="MoneyBags" unique_id=1158255858 instance=ExtResource("7_trtic")]
+position = Vector2(1768, -250)
+
+[node name="MoneyBag16" parent="MoneyBags" unique_id=1130826647 instance=ExtResource("7_trtic")]
+position = Vector2(1864, -250)
+
+[node name="MoneyBag17" parent="MoneyBags" unique_id=1394859111 instance=ExtResource("7_trtic")]
+position = Vector2(1912, -602)
+
+[node name="MoneyBag18" parent="MoneyBags" unique_id=904783045 instance=ExtResource("7_trtic")]
+position = Vector2(1928, 214)
+
+[node name="MoneyBag19" parent="MoneyBags" unique_id=324938275 instance=ExtResource("7_trtic")]
+position = Vector2(1976, 214)
+
+[node name="MoneyBag20" parent="MoneyBags" unique_id=850512929 instance=ExtResource("7_trtic")]
+position = Vector2(2040, 214)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1979532805]
+
+[node name="TaxCollector1" parent="Enemies" unique_id=1280577868 instance=ExtResource("16_4yoxl")]
+position = Vector2(228, 95)
+
+[node name="TaxCollector2" parent="Enemies" unique_id=1692085810 instance=ExtResource("16_4yoxl")]
+position = Vector2(356, 63)
+
+[node name="Cop1" parent="Enemies" unique_id=901872594 instance=ExtResource("16_cop")]
+position = Vector2(468, 15)
+
+[node name="TaxCollector4" parent="Enemies" unique_id=892015447 instance=ExtResource("16_4yoxl")]
+position = Vector2(596, -49)
+
+[node name="TaxCollector5" parent="Enemies" unique_id=20625209 instance=ExtResource("16_4yoxl")]
+position = Vector2(868, -241)
+
+[node name="Cop2" parent="Enemies" unique_id=1727439643 instance=ExtResource("16_cop")]
+position = Vector2(884, -241)
+
+[node name="TaxCollector7" parent="Enemies" unique_id=336491549 instance=ExtResource("16_4yoxl")]
+position = Vector2(996, -241)
+
+[node name="TaxCollector8" parent="Enemies" unique_id=2024937869 instance=ExtResource("16_4yoxl")]
+position = Vector2(1732, -241)
+
+[node name="Cop3" parent="Enemies" unique_id=103048010 instance=ExtResource("16_cop")]
+position = Vector2(1844, 191)
+
+[node name="TaxCollector10" parent="Enemies" unique_id=998376443 instance=ExtResource("16_4yoxl")]
+position = Vector2(1860, 191)
+
+[node name="TaxCollector11" parent="Enemies" unique_id=746727746 instance=ExtResource("16_4yoxl")]
+position = Vector2(1956, 223)
+
+[node name="Cop4" parent="Enemies" unique_id=2059812711 instance=ExtResource("16_cop")]
+position = Vector2(1972, 223)
+
+[node name="TaxCollector13" parent="Enemies" unique_id=1073743523 instance=ExtResource("16_4yoxl")]
+position = Vector2(1988, 223)
+
+[node name="TaxCollector14" parent="Enemies" unique_id=1521494570 instance=ExtResource("16_4yoxl")]
+position = Vector2(2004, 223)
+
+[node name="Player" parent="." unique_id=331069486 instance=ExtResource("18_ubuva")]
+position = Vector2(84, 111)
+
+[node name="GameManager" parent="." unique_id=2072212521 instance=ExtResource("10_wcjpl")]
+unique_name_in_owner = true
+
+[node name="Killzone" parent="." unique_id=335109834 instance=ExtResource("11_5orea")]
+position = Vector2(0, 352)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1382882062]
+shape = SubResource("WorldBoundaryShape2D_0ourt")
+

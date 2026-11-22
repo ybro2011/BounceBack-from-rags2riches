@@ -1,0 +1,101 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="bg"]
+[ext_resource type="PackedScene" path="res://scenes/money_bag.tscn" id="bag"]
+[ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="gm"]
+[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="kill"]
+[ext_resource type="TileSet" path="res://resources/tileset.tres" id="tiles"]
+[ext_resource type="PackedScene" path="res://scenes/tax_collector.tscn" id="tax"]
+[ext_resource type="PackedScene" path="res://scenes/cop.tscn" id="cop"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://scenes/moving_platform.tscn" id="lift"]
+[ext_resource type="PackedScene" path="res://scenes/props/cafe_sign.tscn" id="cafe_sign"]
+[ext_resource type="PackedScene" path="res://scenes/props/shop_sign.tscn" id="shop_sign"]
+[ext_resource type="PackedScene" path="res://scenes/props/street_lamp.tscn" id="street_lamp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bottom"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("bg")]
+ground_y = 127.0
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="ShopSign1" parent="Props" instance=ExtResource("shop_sign")]
+position = Vector2(72, 128)
+
+[node name="CafeSign1" parent="Props" instance=ExtResource("cafe_sign")]
+position = Vector2(392, 128)
+
+[node name="CafeSign2" parent="Props" instance=ExtResource("cafe_sign")]
+position = Vector2(792, 128)
+
+[node name="StreetLamp1" parent="Props" instance=ExtResource("street_lamp")]
+position = Vector2(1160, 128)
+
+[node name="ShopSign2" parent="Props" instance=ExtResource("shop_sign")]
+position = Vector2(1192, 128)
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAAWAAQAAQAGAAAAAAAXAAQAAQAFAAAAAAAYAAQAAQAFAAAAAAAZAAQAAQAFAAAAAAAaAAQAAQAEAAAAAAAtAAQAAgABAAAAAAAuAAQAAgABAAAAAAAvAAQAAgABAAAAAAAwAAQAAgABAAAAAAAxAAQAAgABAAAAAAA8AAQAAQAAAAAAAAA9AAQAAQABAAAAAAA+AAQAAQABAAAAAAA/AAQAAQABAAAAAABAAAQAAQACAAAAAAAOAAUAAgAAAAAAAAAPAAUAAgAAAAAAAAAQAAUAAgAAAAAAAAARAAUAAgAAAAAAAAA8AAUAAQAHAAAAAAA9AAUAAQAIAAAAAAA+AAUAAQAIAAAAAAA/AAUAAQAIAAAAAABAAAUAAQADAAAAAAA2AAYAAgAAAAAAAAA3AAYAAgAAAAAAAAA4AAYAAgAAAAAAAAA5AAYAAgAAAAAAAAA8AAYAAQAHAAAAAAA9AAYAAQAIAAAAAAA+AAYAAQAIAAAAAAA/AAYAAQAIAAAAAABAAAYAAQADAAAAAAA8AAcAAQAHAAAAAAA9AAcAAQAIAAAAAAA+AAcAAQAIAAAAAAA/AAcAAQAIAAAAAABAAAcAAQADAAAAAAAAAAgAAQAAAAAAAAABAAgAAQABAAAAAAACAAgAAQABAAAAAAADAAgAAQABAAAAAAAEAAgAAQABAAAAAAAFAAgAAQABAAAAAAAGAAgAAQABAAAAAAAHAAgAAQABAAAAAAAIAAgAAQABAAAAAAAJAAgAAQABAAAAAAAKAAgAAQABAAAAAAALAAgAAQABAAAAAAAMAAgAAQACAAAAAAASAAgAAQAAAAAAAAATAAgAAQABAAAAAAAUAAgAAQABAAAAAAAVAAgAAQABAAAAAAAWAAgAAQABAAAAAAAXAAgAAQABAAAAAAAYAAgAAQABAAAAAAAZAAgAAQABAAAAAAAaAAgAAQACAAAAAAAsAAgAAQAAAAAAAAAtAAgAAQABAAAAAAAuAAgAAQABAAAAAAAvAAgAAQABAAAAAAAwAAgAAQABAAAAAAAxAAgAAQABAAAAAAAyAAgAAQABAAAAAAAzAAgAAQACAAAAAAA8AAgAAQAHAAAAAAA9AAgAAQAIAAAAAAA+AAgAAQAIAAAAAAA/AAgAAQAIAAAAAABAAAgAAQADAAAAAABCAAgAAQAAAAAAAABDAAgAAQABAAAAAABEAAgAAQABAAAAAABFAAgAAQABAAAAAABGAAgAAQABAAAAAABHAAgAAQABAAAAAABIAAgAAQABAAAAAABJAAgAAQABAAAAAABKAAgAAQABAAAAAABLAAgAAQACAAAAAAAAAAkAAQAHAAAAAAABAAkAAQAIAAAAAAACAAkAAQAIAAAAAAADAAkAAQAIAAAAAAAEAAkAAQAIAAAAAAAFAAkAAQAIAAAAAAAGAAkAAQAIAAAAAAAHAAkAAQAIAAAAAAAIAAkAAQAIAAAAAAAJAAkAAQAIAAAAAAAKAAkAAQAIAAAAAAALAAkAAQAIAAAAAAAMAAkAAQADAAAAAAASAAkAAQAHAAAAAAATAAkAAQAIAAAAAAAUAAkAAQAIAAAAAAAVAAkAAQAIAAAAAAAWAAkAAQAIAAAAAAAXAAkAAQAIAAAAAAAYAAkAAQAIAAAAAAAZAAkAAQAIAAAAAAAaAAkAAQADAAAAAAAsAAkAAQAHAAAAAAAtAAkAAQAIAAAAAAAuAAkAAQAIAAAAAAAvAAkAAQAIAAAAAAAwAAkAAQAIAAAAAAAxAAkAAQAIAAAAAAAyAAkAAQAIAAAAAAAzAAkAAQADAAAAAAA8AAkAAQAHAAAAAAA9AAkAAQAIAAAAAAA+AAkAAQAIAAAAAAA/AAkAAQAIAAAAAABAAAkAAQADAAAAAABCAAkAAQAHAAAAAABDAAkAAQAIAAAAAABEAAkAAQAIAAAAAABFAAkAAQAIAAAAAABGAAkAAQAIAAAAAABHAAkAAQAIAAAAAABIAAkAAQAIAAAAAABJAAkAAQAIAAAAAABKAAkAAQAIAAAAAABLAAkAAQADAAAAAAAAAAoAAQAHAAAAAAABAAoAAQAIAAAAAAACAAoAAQAIAAAAAAADAAoAAQAIAAAAAAAEAAoAAQAIAAAAAAAFAAoAAQAIAAAAAAAGAAoAAQAIAAAAAAAHAAoAAQAIAAAAAAAIAAoAAQAIAAAAAAAJAAoAAQAIAAAAAAAKAAoAAQAIAAAAAAALAAoAAQAIAAAAAAAMAAoAAQADAAAAAAASAAoAAQAHAAAAAAATAAoAAQAIAAAAAAAUAAoAAQAIAAAAAAAVAAoAAQAIAAAAAAAWAAoAAQAIAAAAAAAXAAoAAQAIAAAAAAAYAAoAAQAIAAAAAAAZAAoAAQAIAAAAAAAaAAoAAQADAAAAAAAsAAoAAQAHAAAAAAAtAAoAAQAIAAAAAAAuAAoAAQAIAAAAAAAvAAoAAQAIAAAAAAAwAAoAAQAIAAAAAAAxAAoAAQAIAAAAAAAyAAoAAQAIAAAAAAAzAAoAAQADAAAAAAA8AAoAAQAHAAAAAAA9AAoAAQAIAAAAAAA+AAoAAQAIAAAAAAA/AAoAAQAIAAAAAABAAAoAAQADAAAAAABCAAoAAQAHAAAAAABDAAoAAQAIAAAAAABEAAoAAQAIAAAAAABFAAoAAQAIAAAAAABGAAoAAQAIAAAAAABHAAoAAQAIAAAAAABIAAoAAQAIAAAAAABJAAoAAQAIAAAAAABKAAoAAQAIAAAAAABLAAoAAQADAAAAAAAAAAsAAQAGAAAAAAABAAsAAQAFAAAAAAACAAsAAQAFAAAAAAADAAsAAQAFAAAAAAAEAAsAAQAFAAAAAAAFAAsAAQAFAAAAAAAGAAsAAQAFAAAAAAAHAAsAAQAFAAAAAAAIAAsAAQAFAAAAAAAJAAsAAQAFAAAAAAAKAAsAAQAFAAAAAAALAAsAAQAFAAAAAAAMAAsAAQAEAAAAAAASAAsAAQAGAAAAAAATAAsAAQAFAAAAAAAUAAsAAQAFAAAAAAAVAAsAAQAFAAAAAAAWAAsAAQAFAAAAAAAXAAsAAQAFAAAAAAAYAAsAAQAFAAAAAAAZAAsAAQAFAAAAAAAaAAsAAQAEAAAAAAAsAAsAAQAGAAAAAAAtAAsAAQAFAAAAAAAuAAsAAQAFAAAAAAAvAAsAAQAFAAAAAAAwAAsAAQAFAAAAAAAxAAsAAQAFAAAAAAAyAAsAAQAFAAAAAAAzAAsAAQAEAAAAAAA8AAsAAQAGAAAAAAA9AAsAAQAFAAAAAAA+AAsAAQAFAAAAAAA/AAsAAQAFAAAAAABAAAsAAQAEAAAAAABCAAsAAQAGAAAAAABDAAsAAQAFAAAAAABEAAsAAQAFAAAAAABFAAsAAQAFAAAAAABGAAsAAQAFAAAAAABHAAsAAQAFAAAAAABIAAsAAQAFAAAAAABJAAsAAQAFAAAAAABKAAsAAQAFAAAAAABLAAsAAQAEAAAAAAA=")
+tile_set = ExtResource("tiles")
+
+[node name="MoneyBags" type="Node2D" parent="."]
+
+[node name="MoneyBag1" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(168, 38)
+
+[node name="MoneyBag2" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(184, 38)
+
+[node name="MoneyBag3" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(744, 38)
+
+[node name="MoneyBag4" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(760, 38)
+
+[node name="MoneyBag5" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(776, 38)
+
+[node name="MoneyBag6" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(888, 86)
+
+[node name="MoneyBag7" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(904, 86)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="TaxCollector1" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(392, 63)
+
+[node name="Cop1" parent="Enemies" instance=ExtResource("cop")]
+position = Vector2(1000, 63)
+
+[node name="TaxCollector2" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(168, 127)
+
+[node name="TaxCollector3" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(744, 127)
+
+[node name="TaxCollector4" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(1112, 127)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="MovingPlatform1" parent="Platforms" instance=ExtResource("lift")]
+position = Vector2(520, 131)
+move_by = Vector2(96, 0)
+seconds = 2.7
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector2(24, 127)
+
+[node name="GameManager" parent="." instance=ExtResource("gm")]
+unique_name_in_owner = true
+
+[node name="Killzone" parent="." instance=ExtResource("kill")]
+position = Vector2(0, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_bottom")

@@ -1,0 +1,95 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="bg"]
+[ext_resource type="PackedScene" path="res://scenes/money_bag.tscn" id="bag"]
+[ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="gm"]
+[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="kill"]
+[ext_resource type="TileSet" path="res://resources/tileset.tres" id="tiles"]
+[ext_resource type="PackedScene" path="res://scenes/tax_collector.tscn" id="tax"]
+[ext_resource type="PackedScene" path="res://scenes/cop.tscn" id="cop"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://scenes/moving_platform.tscn" id="lift"]
+[ext_resource type="PackedScene" path="res://scenes/props/street_lamp.tscn" id="street_lamp"]
+[ext_resource type="PackedScene" path="res://scenes/props/trash_can.tscn" id="trash_can"]
+[ext_resource type="PackedScene" path="res://scenes/props/weather_vane.tscn" id="weather_vane"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bottom"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("bg")]
+ground_y = 303.0
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="WeatherVane1" parent="Props" instance=ExtResource("weather_vane")]
+position = Vector2(424, 48)
+
+[node name="StreetLamp1" parent="Props" instance=ExtResource("street_lamp")]
+position = Vector2(88, 304)
+
+[node name="TrashCan1" parent="Props" instance=ExtResource("trash_can")]
+position = Vector2(696, 304)
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAKAAIAAgACAAAAAAALAAIAAgACAAAAAAAMAAIAAgACAAAAAAANAAIAAgACAAAAAAAOAAIAAgACAAAAAAAPAAIAAgACAAAAAAAUAAMAAAAGAAAAAAAVAAMAAAAFAAAAAAAWAAMAAAAFAAAAAAAXAAMAAAAFAAAAAAAYAAMAAAAFAAAAAAAZAAMAAAAFAAAAAAAaAAMAAAAFAAAAAAAbAAMAAAAEAAAAAAADAAUAAQAGAAAAAAAEAAUAAQAFAAAAAAAFAAUAAQAFAAAAAAAGAAUAAQAFAAAAAAAHAAUAAQAEAAAAAAAkAAYAAgAAAAAAAAAlAAYAAgAAAAAAAAAmAAYAAgAAAAAAAAAnAAYAAgAAAAAAAAAoAAYAAgAAAAAAAAAKAAgAAQAGAAAAAAALAAgAAQAFAAAAAAAMAAgAAQAFAAAAAAANAAgAAQAFAAAAAAAOAAgAAQAFAAAAAAAPAAgAAQAEAAAAAAAsAAkAAAAGAAAAAAAtAAkAAAAFAAAAAAAuAAkAAAAEAAAAAAATAAoAAgABAAAAAAAUAAoAAgABAAAAAAAVAAoAAgABAAAAAAAWAAoAAgABAAAAAAAXAAoAAgABAAAAAAAYAA0AAAAGAAAAAAAZAA0AAAAFAAAAAAAaAA0AAAAFAAAAAAAbAA0AAAAFAAAAAAAcAA0AAAAFAAAAAAAdAA0AAAAEAAAAAAAJABAAAgABAAAAAAAKABAAAgABAAAAAAALABAAAgABAAAAAAAMABAAAgABAAAAAAAQABAAAAAGAAAAAAARABAAAAAFAAAAAAASABAAAAAFAAAAAAATABAAAAAFAAAAAAAUABAAAAAFAAAAAAAVABAAAAAEAAAAAAAAABMAAAAAAAAAAAABABMAAAABAAAAAAACABMAAAABAAAAAAADABMAAAABAAAAAAAEABMAAAABAAAAAAAFABMAAAABAAAAAAAGABMAAAABAAAAAAAHABMAAAABAAAAAAAIABMAAAABAAAAAAAJABMAAAABAAAAAAAKABMAAAABAAAAAAALABMAAAABAAAAAAAMABMAAAABAAAAAAANABMAAAACAAAAAAAeABMAAAAAAAAAAAAfABMAAAABAAAAAAAgABMAAAABAAAAAAAhABMAAAABAAAAAAAiABMAAAABAAAAAAAjABMAAAABAAAAAAAkABMAAAABAAAAAAAlABMAAAABAAAAAAAmABMAAAABAAAAAAAnABMAAAABAAAAAAAoABMAAAABAAAAAAApABMAAAABAAAAAAAqABMAAAABAAAAAAArABMAAAABAAAAAAAsABMAAAABAAAAAAAtABMAAAACAAAAAAAAABQAAAAGAAAAAAABABQAAAAFAAAAAAACABQAAAAFAAAAAAADABQAAAAFAAAAAAAEABQAAAAFAAAAAAAFABQAAAAFAAAAAAAGABQAAAAFAAAAAAAHABQAAAAFAAAAAAAIABQAAAAFAAAAAAAJABQAAAAFAAAAAAAKABQAAAAFAAAAAAALABQAAAAFAAAAAAAMABQAAAAFAAAAAAANABQAAAAEAAAAAAAeABQAAAAGAAAAAAAfABQAAAAFAAAAAAAgABQAAAAFAAAAAAAhABQAAAAFAAAAAAAiABQAAAAFAAAAAAAjABQAAAAFAAAAAAAkABQAAAAFAAAAAAAlABQAAAAFAAAAAAAmABQAAAAFAAAAAAAnABQAAAAFAAAAAAAoABQAAAAFAAAAAAApABQAAAAFAAAAAAAqABQAAAAFAAAAAAArABQAAAAFAAAAAAAsABQAAAAFAAAAAAAtABQAAAAEAAAAAAA=")
+tile_set = ExtResource("tiles")
+
+[node name="MoneyBags" type="Node2D" parent="."]
+
+[node name="MoneyBag1" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(200, 6)
+
+[node name="MoneyBag2" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(216, 6)
+
+[node name="MoneyBag3" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(616, 70)
+
+[node name="MoneyBag4" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(184, 86)
+
+[node name="MoneyBag5" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(728, 102)
+
+[node name="MoneyBag6" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(168, 246)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="TaxCollector1" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(360, 47)
+
+[node name="TaxCollector2" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(88, 79)
+
+[node name="Cop1" parent="Enemies" instance=ExtResource("cop")]
+position = Vector2(200, 127)
+
+[node name="TaxCollector3" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(424, 207)
+
+[node name="TaxCollector4" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(312, 255)
+
+[node name="TaxCollector5" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(552, 303)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="MovingPlatform1" parent="Platforms" instance=ExtResource("lift")]
+position = Vector2(664, 275)
+move_by = Vector2(0, -128)
+seconds = 3.6
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector2(24, 303)
+
+[node name="GameManager" parent="." instance=ExtResource("gm")]
+unique_name_in_owner = true
+
+[node name="Killzone" parent="." instance=ExtResource("kill")]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_bottom")

@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[node name="Burst" type="CPUParticles2D"]
+emitting = true
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 90.0
+damping_min = 60.0
+damping_max = 100.0
+scale_amount_min = 1.0
+scale_amount_max = 2.0
+
+[connection signal="finished" from="." to="." method="queue_free"]

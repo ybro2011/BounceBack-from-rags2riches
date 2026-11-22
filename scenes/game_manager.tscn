@@ -1,0 +1,91 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_gm"]
+[ext_resource type="AudioStream" path="res://assets/audio/cash.wav" id="2_cash"]
+[ext_resource type="FontFile" path="res://assets/fonts/kenpixel_mini_square.ttf" id="f_small"]
+[ext_resource type="FontFile" path="res://assets/fonts/kenpixel_future_square.ttf" id="f_big"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_small"]
+font = ExtResource("f_small")
+font_size = 8
+shadow_size = 0
+shadow_color = Color(0.1, 0.03, 0.2, 1)
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_big"]
+font = ExtResource("f_big")
+font_size = 16
+shadow_size = 0
+shadow_color = Color(0.1, 0.03, 0.2, 1)
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("f_big")
+font_size = 16
+font_color = Color(1, 0.3, 0.7, 1)
+shadow_size = 0
+shadow_color = Color(0.25, 0.9, 1, 1)
+shadow_offset = Vector2(1, 1)
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_gm")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+
+[node name="TopBar" type="ColorRect" parent="HUD"]
+offset_right = 320.0
+offset_bottom = 34.0
+color = Color(0.08, 0.03, 0.15, 0.65)
+
+[node name="LevelBar" type="HBoxContainer" parent="HUD"]
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 316.0
+offset_bottom = 24.0
+theme_override_constants/separation = 2
+
+[node name="LevelLabel" type="Label" parent="HUD"]
+offset_left = 236.0
+offset_top = 4.0
+offset_right = 316.0
+offset_bottom = 14.0
+text = "LEVEL 1/10"
+label_settings = SubResource("LabelSettings_small")
+horizontal_alignment = 2
+
+[node name="LevelNameLabel" type="Label" parent="HUD"]
+offset_top = 25.0
+offset_right = 320.0
+offset_bottom = 33.0
+text = "SOUTH BEACH"
+label_settings = SubResource("LabelSettings_small")
+horizontal_alignment = 1
+
+[node name="DebtLabel" type="Label" parent="HUD"]
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 19.0
+modulate = Color(1, 0.2, 0.25, 1)
+text = "DEBT $1,000,000"
+label_settings = SubResource("LabelSettings_big")
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="HUD"]
+offset_top = 37.0
+offset_right = 320.0
+offset_bottom = 47.0
+label_settings = SubResource("LabelSettings_small")
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="HUD"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 14.0
+text = "0:00.00"
+label_settings = SubResource("LabelSettings_small")
+
+[node name="CashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cash")
+volume_db = -8.0

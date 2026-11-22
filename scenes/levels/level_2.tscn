@@ -1,0 +1,116 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="bg"]
+[ext_resource type="PackedScene" path="res://scenes/money_bag.tscn" id="bag"]
+[ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="gm"]
+[ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="kill"]
+[ext_resource type="TileSet" path="res://resources/tileset.tres" id="tiles"]
+[ext_resource type="PackedScene" path="res://scenes/tax_collector.tscn" id="tax"]
+[ext_resource type="PackedScene" path="res://scenes/cop.tscn" id="cop"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://scenes/moving_platform.tscn" id="lift"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_1.tscn" id="house_1"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_2.tscn" id="house_2"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_3.tscn" id="house_3"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_4.tscn" id="house_4"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_5.tscn" id="house_5"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_small_1.tscn" id="house_small_1"]
+[ext_resource type="PackedScene" path="res://scenes/props/house_small_2.tscn" id="house_small_2"]
+[ext_resource type="PackedScene" path="res://scenes/props/hydrant.tscn" id="hydrant"]
+[ext_resource type="PackedScene" path="res://scenes/props/palm_small.tscn" id="palm_small"]
+[ext_resource type="PackedScene" path="res://scenes/props/street_lamp.tscn" id="street_lamp"]
+[ext_resource type="PackedScene" path="res://scenes/props/traffic_cone.tscn" id="traffic_cone"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bottom"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("bg")]
+ground_y = 143.0
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="House1" parent="Props" instance=ExtResource("house_small_2")]
+position = Vector2(56, 144)
+
+[node name="StreetLamp1" parent="Props" instance=ExtResource("street_lamp")]
+position = Vector2(104, 144)
+
+[node name="House2" parent="Props" instance=ExtResource("house_small_2")]
+position = Vector2(296, 144)
+
+[node name="StreetLamp2" parent="Props" instance=ExtResource("street_lamp")]
+position = Vector2(440, 144)
+
+[node name="House3" parent="Props" instance=ExtResource("house_1")]
+position = Vector2(584, 144)
+
+[node name="PalmSmall1" parent="Props" instance=ExtResource("palm_small")]
+position = Vector2(688, 128)
+
+[node name="TrafficCone1" parent="Props" instance=ExtResource("traffic_cone")]
+position = Vector2(840, 144)
+
+[node name="House4" parent="Props" instance=ExtResource("house_1")]
+position = Vector2(952, 144)
+
+[node name="StreetLamp3" parent="Props" instance=ExtResource("street_lamp")]
+position = Vector2(1016, 144)
+
+[node name="Hydrant1" parent="Props" instance=ExtResource("hydrant")]
+position = Vector2(1144, 144)
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("tiles")
+
+[node name="MoneyBags" type="Node2D" parent="."]
+
+[node name="MoneyBag1" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(200, 38)
+
+[node name="MoneyBag2" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(216, 38)
+
+[node name="MoneyBag3" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(552, 38)
+
+[node name="MoneyBag4" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(568, 38)
+
+[node name="MoneyBag5" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(584, 38)
+
+[node name="MoneyBag6" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(904, 38)
+
+[node name="MoneyBag7" parent="MoneyBags" instance=ExtResource("bag")]
+position = Vector2(920, 38)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="TaxCollector1" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(360, 143)
+
+[node name="TaxCollector2" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(648, 143)
+
+[node name="TaxCollector3" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(888, 143)
+
+[node name="TaxCollector4" parent="Enemies" instance=ExtResource("tax")]
+position = Vector2(1096, 143)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector2(24, 143)
+
+[node name="GameManager" parent="." instance=ExtResource("gm")]
+unique_name_in_owner = true
+
+[node name="Killzone" parent="." instance=ExtResource("kill")]
+position = Vector2(0, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_bottom")

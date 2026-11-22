@@ -1,0 +1,73 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/tax_collector.gd" id="0_tax"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/suit_guy.png" id="1_f"]
+[ext_resource type="Texture2D" path="res://assets/images/gun.png" id="0_gun"]
+[ext_resource type="PackedScene" path="res://scenes/dollar.tscn" id="bullet"]
+[ext_resource type="AudioStream" path="res://assets/audio/shoot.wav" id="0_shoot"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tax"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("1_f")}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("1_f")}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tax"]
+size = Vector2(8, 15)
+
+[node name="TaxCollector" type="Node2D" groups=["tax_collectors"]]
+script = ExtResource("0_tax")
+Bullet = ExtResource("bullet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12.5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_tax")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(4, -8)
+texture = ExtResource("0_gun")
+centered = false
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_tax")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(6, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(-6, 0)
+
+[node name="RayCastFloorRight" type="RayCast2D" parent="."]
+position = Vector2(7, -1)
+target_position = Vector2(0, 9)
+
+[node name="RayCastFloorLeft" type="RayCast2D" parent="."]
+position = Vector2(-7, -1)
+target_position = Vector2(0, 9)
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("0_shoot")
+volume_db = -14.0
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

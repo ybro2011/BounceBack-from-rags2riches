@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/tax_collector.tscn" id="0_base"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/cop.png" id="1_f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cop"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("1_f")}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("1_f")}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Cop" instance=ExtResource("0_base")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -15.5)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_cop")
