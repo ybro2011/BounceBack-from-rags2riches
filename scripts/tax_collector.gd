@@ -44,7 +44,7 @@ func _on_shoot_timer_timeout():
 	if not player or GameState.dying:
 		return
 	var distance = player.global_position - global_position
-	if abs(distance.y) < 16 and sign(distance.x) == direction:
+	if abs(distance.y) < 16 and abs(distance.x) < 140 and sign(distance.x) == direction:
 		shoot()
 
 func shoot():

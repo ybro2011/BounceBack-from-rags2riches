@@ -5,7 +5,7 @@ const BUST_REWARD = 10000
 const BAG_REWARD = 2000
 const CLEAR_REWARD = 20000
 const LEVEL_NAMES = ["SOUTH BEACH", "OCEAN DRIVE", "LITTLE HAVANA", "THE DOCKS", "ROOFTOPS", "CONSTRUCTION SITE", "BAYSIDE MARKET", "THE TOWER", "DOWNTOWN", "THE IRS BUILDING"]
-const HIT_PENALTY = 25000
+const HIT_PENALTY = 5000
 
 var debt = START_DEBT
 var level = 1
@@ -68,14 +68,14 @@ func kill_player(player, reason):
 		return
 	dying = true
 	Engine.time_scale = 0.5
-	player.get_node("CollisionShape2D").queue_free()
+	player.get_hurt()
 	var scene = get_tree().current_scene
 	await get_tree().create_timer(0.6).timeout
 	Engine.time_scale = 1.0
 	dying = false
 	if get_tree().current_scene == scene:
 		change_debt(HIT_PENALTY, reason)
-		get_tree().reload_current_scene()
+		player.respawn()
 
 func change_debt(amount, why):
 	debt = max(0, debt + amount)
