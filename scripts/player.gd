@@ -7,8 +7,8 @@ const WALL_SLIDE_SPEED = 20.0
 const WALL_JUMP_PUSH = 120.0
 const DASH_SPEED = 300.0
 const DASH_COOLDOWN = 0.6
-const SLAM_RANGE = 48
-const SLAM_HEIGHT = 24
+const SLAM_RANGE = 32
+const SLAM_HEIGHT = 16
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

@@ -99,7 +99,12 @@ func change_debt(amount, why):
 		messages.pop_front()
 	if debt == 0:
 		timer_running = false
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/win_screen.tscn")
+		win()
+
+func win():
+	await get_tree().create_timer(2.0).timeout
+	if debt == 0:
+		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 
 func money(amount):
 	var digits = str(amount)
