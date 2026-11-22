@@ -20,6 +20,8 @@ var dash_direction = 1
 var jumped = false
 var land_time = 0.0
 var double_jump_time = 0.0
+var attack_time = 0.0
+var attack_anim = ""
 var climbing = false
 var hurt = false
 var invulnerable_time = 0.0
@@ -89,9 +91,12 @@ func _physics_process(delta):
 
 	land_time -= delta
 	double_jump_time -= delta
+	attack_time -= delta
 
 	# Play animations
-	if dash_time > 0:
+	if attack_time > 0:
+		animated_sprite.play(attack_anim)
+	elif dash_time > 0:
 		animated_sprite.play("dash")
 	elif is_on_floor():
 		if land_time > 0 and direction == 0:
@@ -171,6 +176,13 @@ func slam():
 		var distance = tax_collector.global_position - global_position
 		if abs(distance.x) <= SLAM_RANGE and abs(distance.y) <= SLAM_HEIGHT:
 			tax_collector.get_busted()
+			play_attack("slam_attack")
+
+func play_attack(anim):
+	attack_anim = anim
+	attack_time = 0.25
+	animated_sprite.play(anim)
+	animated_sprite.frame = 0
 
 func get_hurt():
 	hurt = true

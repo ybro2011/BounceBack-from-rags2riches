@@ -5,9 +5,13 @@
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_climb_1.png" id="climb_1"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_dash_0.png" id="dash_0"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_dash_1.png" id="dash_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_dash_2.png" id="dash_2"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_dash_attack_0.png" id="dash_attack_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_dash_attack_1.png" id="dash_attack_1"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_double_jump_0.png" id="double_jump_0"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_double_jump_1.png" id="double_jump_1"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_double_jump_2.png" id="double_jump_2"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_double_jump_3.png" id="double_jump_3"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_fall_0.png" id="fall_0"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_fall_1.png" id="fall_1"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_hurt_0.png" id="hurt_0"]
@@ -18,6 +22,7 @@
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_jump_0.png" id="jump_0"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_jump_1.png" id="jump_1"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_jump_2.png" id="jump_2"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_jump_3.png" id="jump_3"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_land_0.png" id="land_0"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_land_1.png" id="land_1"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_0.png" id="run_0"]
@@ -26,7 +31,12 @@
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_3.png" id="run_3"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_4.png" id="run_4"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_5.png" id="run_5"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_6.png" id="run_6"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_7.png" id="run_7"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_slam_0.png" id="slam_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_slam_attack_0.png" id="slam_attack_0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_slam_attack_1.png" id="slam_attack_1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_slam_attack_2.png" id="slam_attack_2"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_wall_jump_0.png" id="wall_jump_0"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_wall_jump_1.png" id="wall_jump_1"]
 [ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_wall_slide_0.png" id="wall_slide_0"]
@@ -40,15 +50,20 @@ animations = [{
 "name": &"climb",
 "speed": 10.0
 }, {
-"frames": [{"duration": 1.0, "texture": ExtResource("dash_0")}, {"duration": 1.0, "texture": ExtResource("dash_1")}],
-"loop": true,
+"frames": [{"duration": 1.0, "texture": ExtResource("dash_0")}, {"duration": 1.0, "texture": ExtResource("dash_1")}, {"duration": 1.0, "texture": ExtResource("dash_2")}],
+"loop": false,
 "name": &"dash",
-"speed": 15.0
+"speed": 20.0
 }, {
-"frames": [{"duration": 1.0, "texture": ExtResource("double_jump_0")}, {"duration": 1.0, "texture": ExtResource("double_jump_1")}, {"duration": 1.0, "texture": ExtResource("double_jump_2")}],
+"frames": [{"duration": 1.0, "texture": ExtResource("dash_attack_0")}, {"duration": 1.0, "texture": ExtResource("dash_attack_1")}],
+"loop": false,
+"name": &"dash_attack",
+"speed": 10.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("double_jump_0")}, {"duration": 1.0, "texture": ExtResource("double_jump_1")}, {"duration": 1.0, "texture": ExtResource("double_jump_2")}, {"duration": 1.0, "texture": ExtResource("double_jump_3")}],
 "loop": false,
 "name": &"double_jump",
-"speed": 14.0
+"speed": 16.0
 }, {
 "frames": [{"duration": 1.0, "texture": ExtResource("fall_0")}, {"duration": 1.0, "texture": ExtResource("fall_1")}],
 "loop": true,
@@ -65,25 +80,30 @@ animations = [{
 "name": &"idle",
 "speed": 4.0
 }, {
-"frames": [{"duration": 1.0, "texture": ExtResource("jump_0")}, {"duration": 1.0, "texture": ExtResource("jump_1")}, {"duration": 1.0, "texture": ExtResource("jump_2")}],
+"frames": [{"duration": 1.0, "texture": ExtResource("jump_0")}, {"duration": 1.0, "texture": ExtResource("jump_1")}, {"duration": 1.0, "texture": ExtResource("jump_2")}, {"duration": 1.0, "texture": ExtResource("jump_3")}],
 "loop": false,
 "name": &"jump",
-"speed": 12.0
+"speed": 14.0
 }, {
 "frames": [{"duration": 1.0, "texture": ExtResource("land_0")}, {"duration": 1.0, "texture": ExtResource("land_1")}],
 "loop": false,
 "name": &"land",
 "speed": 14.0
 }, {
-"frames": [{"duration": 1.0, "texture": ExtResource("run_0")}, {"duration": 1.0, "texture": ExtResource("run_1")}, {"duration": 1.0, "texture": ExtResource("run_2")}, {"duration": 1.0, "texture": ExtResource("run_3")}, {"duration": 1.0, "texture": ExtResource("run_4")}, {"duration": 1.0, "texture": ExtResource("run_5")}],
+"frames": [{"duration": 1.0, "texture": ExtResource("run_0")}, {"duration": 1.0, "texture": ExtResource("run_1")}, {"duration": 1.0, "texture": ExtResource("run_2")}, {"duration": 1.0, "texture": ExtResource("run_3")}, {"duration": 1.0, "texture": ExtResource("run_4")}, {"duration": 1.0, "texture": ExtResource("run_5")}, {"duration": 1.0, "texture": ExtResource("run_6")}, {"duration": 1.0, "texture": ExtResource("run_7")}],
 "loop": true,
 "name": &"run",
-"speed": 15.0
+"speed": 16.0
 }, {
 "frames": [{"duration": 1.0, "texture": ExtResource("slam_0")}],
 "loop": true,
 "name": &"slam",
 "speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("slam_attack_0")}, {"duration": 1.0, "texture": ExtResource("slam_attack_1")}, {"duration": 1.0, "texture": ExtResource("slam_attack_2")}],
+"loop": false,
+"name": &"slam_attack",
+"speed": 12.0
 }, {
 "frames": [{"duration": 1.0, "texture": ExtResource("wall_jump_0")}, {"duration": 1.0, "texture": ExtResource("wall_jump_1")}],
 "loop": true,

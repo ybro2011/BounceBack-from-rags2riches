@@ -37,6 +37,7 @@ func _process(delta):
 
 	var player = get_tree().get_first_node_in_group("player")
 	if player and player.is_dashing() and hitbox.overlaps_body(player):
+		player.play_attack("dash_attack")
 		get_busted()
 
 func _on_shoot_timer_timeout():
