@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -180.0
 const WALL_SLIDE_SPEED = 20.0
 const WALL_JUMP_PUSH = 120.0
 const DASH_SPEED = 300.0
+const DASH_COOLDOWN = 0.6
 const SLAM_RANGE = 48
 const SLAM_HEIGHT = 24
 
@@ -17,6 +18,8 @@ var max_jumps = 3
 var wall_jump_lock = 0.0
 var dash_time = 0.0
 var dash_direction = 1
+var dash_cooldown = 0.0
+var can_air_dash = true
 var jumped = false
 var land_time = 0.0
 var double_jump_time = 0.0
@@ -83,7 +86,11 @@ func _physics_process(delta):
 	elif direction < 0:
 		animated_sprite.flip_h = true
 
-	if Input.is_action_just_pressed("dash") and dash_time <= 0:
+	dash_cooldown -= delta
+	if Input.is_action_just_pressed("dash") and dash_time <= 0 and dash_cooldown <= 0 and (is_on_floor() or can_air_dash):
+		if not is_on_floor():
+			can_air_dash = false
+		dash_cooldown = DASH_COOLDOWN
 		dash_direction = -1 if animated_sprite.flip_h else 1
 		dash_time = 0.15
 		dash_sound.play()
@@ -136,6 +143,7 @@ func _physics_process(delta):
 
 	if is_on_floor():
 		jump_count = 0
+		can_air_dash = true
 		if was_in_air:
 			land_time = 0.12
 			if jumped:

@@ -1,0 +1,95 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/level_clear.gd" id="1_screen"]
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="2_bg"]
+[ext_resource type="Texture2D" path="res://assets/images/user/money_bag.png" id="3_bag"]
+[ext_resource type="FontFile" path="res://assets/fonts/kenpixel_mini_square.ttf" id="f_small"]
+[ext_resource type="FontFile" path="res://assets/fonts/kenpixel_future_square.ttf" id="f_big"]
+
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_0.png" id="a0"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_1.png" id="a1"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_2.png" id="a2"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_3.png" id="a3"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_4.png" id="a4"]
+[ext_resource type="Texture2D" path="res://assets/images/user/characters/blonde_run_5.png" id="a5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_screen"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("a0")}, {"duration": 1.0, "texture": ExtResource("a1")}, {"duration": 1.0, "texture": ExtResource("a2")}, {"duration": 1.0, "texture": ExtResource("a3")}, {"duration": 1.0, "texture": ExtResource("a4")}, {"duration": 1.0, "texture": ExtResource("a5")}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_small"]
+font = ExtResource("f_small")
+font_size = 8
+shadow_size = 0
+shadow_color = Color(0.1, 0.03, 0.2, 1)
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_big"]
+font = ExtResource("f_big")
+font_size = 16
+shadow_size = 0
+shadow_color = Color(0.1, 0.03, 0.2, 1)
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("f_big")
+font_size = 16
+font_color = Color(1, 0.3, 0.7, 1)
+shadow_size = 0
+shadow_color = Color(0.25, 0.9, 1, 1)
+shadow_offset = Vector2(1, 1)
+
+[node name="LevelClear" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(2, 2)
+script = ExtResource("1_screen")
+
+[node name="Background" parent="." instance=ExtResource("2_bg")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0.08, 0.03, 0.15, 0.7)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 320.0
+offset_bottom = 70.0
+text = "LEVEL CLEARED!"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 320.0
+offset_bottom = 230.0
+text = "FROM RAGS TO RICHES.
+
+TIME: 0:00.00
+
+PRESS ENTER TO PLAY AGAIN"
+label_settings = SubResource("LabelSettings_small")
+horizontal_alignment = 1
+
+[node name="MoneyBag" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 22.0
+offset_right = 176.0
+offset_bottom = 54.0
+texture = ExtResource("3_bag")
+
+[node name="Guy" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, 170)
+sprite_frames = SubResource("SpriteFrames_screen")
+autoplay = "default"

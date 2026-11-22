@@ -10,6 +10,8 @@ const HIT_PENALTY = 5000
 var debt = START_DEBT
 var level = 1
 var taken = []
+var level_busts = 0
+var level_bags = 0
 var dying = false
 var messages = []
 var time = 0.0
@@ -32,6 +34,8 @@ func start_game():
 	timer_running = true
 	Engine.time_scale = 1.0
 	level = 1
+	level_busts = 0
+	level_bags = 0
 	get_tree().change_scene_to_file(level_path())
 
 func level_path():
@@ -45,10 +49,12 @@ func is_taken(thing_name):
 
 func collect(bag_name):
 	taken.append(bag_name)
+	level_bags += 1
 	change_debt(-BAG_REWARD, "MONEY BAG")
 
 func bust(tax_collector_name):
 	taken.append(tax_collector_name)
+	level_busts += 1
 	change_debt(-BUST_REWARD, "TAX MAN BUSTED")
 
 func level_cleared():
@@ -60,8 +66,15 @@ func level_cleared():
 		return
 	change_debt(-CLEAR_REWARD, "LEVEL CLEARED")
 	if debt > 0:
-		level += 1
-		get_tree().call_deferred("change_scene_to_file", level_path())
+		timer_running = false
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/level_clear.tscn")
+
+func next_level():
+	level += 1
+	timer_running = true
+	level_busts = 0
+	level_bags = 0
+	get_tree().change_scene_to_file(level_path())
 
 func kill_player(player, reason):
 	if dying:
